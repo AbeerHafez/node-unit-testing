@@ -65,7 +65,7 @@ const getUserByName= async (req, res) => {
         var user = await userModel.findOne({ name })
         if (user) res.status(200).json({data:user})
         else {
-            res.status(200).json({ message: "There is no user with name: " + name })
+            res.status(404).json({ message: "There is no user with name: " + name })
         }
     } catch (e) {
         res.status(400).json({ message: e.message })
